@@ -57,6 +57,9 @@ namespace TechServices
         }
         private void CreateAccount_Click(object sender, RoutedEventArgs e)
         {
+            string pass = chkShowPassword.IsChecked == true ? PasswordInputVisible.Text : PasswordInput.Password;
+            string confirmPass = chkShowConfirmPassword.IsChecked == true ? ConfirmPasswordInputVisible.Text : ConfirmPassword.Password;
+
             ErrorText.Visibility = Visibility.Collapsed;
             if (string.IsNullOrWhiteSpace(UsernameBox.Text))
             {
@@ -86,20 +89,20 @@ namespace TechServices
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(PasswordInput.Password))
+            if (string.IsNullOrWhiteSpace(pass))
             {
                 ErrorText.Visibility = Visibility.Visible;
                 ErrorText.Text = ("أدخل كلمة السر");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(ConfirmPassword.Password))
+            if (string.IsNullOrWhiteSpace(confirmPass))
             {
                 ErrorText.Visibility = Visibility.Visible;
                 ErrorText.Text = ("أدخل كلمة المرور مرة اخرى");
                 return;
             }
-            if (PasswordInput.Password != ConfirmPassword.Password)
+            if (pass != confirmPass)
             {
                 ErrorText.Visibility = Visibility.Visible;
                 ErrorText.Text = ("كلمة المرور وتأكيدها غير متطابقين");
@@ -112,6 +115,14 @@ namespace TechServices
             }
             this.Close();
 
+        }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Owner != null)
+            {
+                this.Owner.Show();
+            }
+            this.Close();
         }
     }
 }

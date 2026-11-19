@@ -39,7 +39,7 @@
                 <TextBlock Text="كلمة السر"  HorizontalAlignment="Right" Margin="0,0,0,6"/>
                 <PasswordBox x:Name="PasswordInput" Margin="0,0,0,14"/>
                 <TextBox x:Name="PasswordInputVisible" Margin="0,0,0,14" Visibility="Collapsed"/>
-                <CheckBox x:Name="chkShowPassword" Content="اظهار كلمة السر" HorizontalAlignment="Right" Margin="0,0,0,14" Checked="ShowPassword_Changed" Unchecked="ShowPassword_Changed"/>
+                <CheckBox x:Name="chkShowPassword" Content="اظهار كلمة السر" HorizontalAlignment="Right" Margin="0,0,0,20" Checked="ShowPassword_Changed" Unchecked="ShowPassword_Changed"/>
 
                 <TextBlock Text="تأكيد كلمة السر"  HorizontalAlignment="Right" Margin="0,0,0,6"/>
                 <PasswordBox x:Name="ConfirmPassword" Margin="0,0,0,14"/>
@@ -49,7 +49,8 @@
                 <TextBlock x:Name="InfoText" Foreground="{StaticResource PrimaryBrush}" TextWrapping="Wrap" Margin="0,0,0,8"/>
                 <TextBlock x:Name="ErrorText" Foreground="{StaticResource DangerBrush}" TextAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed" TextWrapping="Wrap" Margin="0,10,0,10"/>
 
-                <Button Content="انشاء" Style="{StaticResource PrimaryButton}" IsDefault="True" Click="CreateAccount_Click"/>
+                <Button Content="انشاء" Style="{StaticResource PrimaryButton}" IsDefault="True" Click="CreateAccount_Click" Margin="0,4"/>
+                <Button Content="رجوع" Style="{StaticResource PrimaryButton}" IsDefault="True" Click="Back_Click"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

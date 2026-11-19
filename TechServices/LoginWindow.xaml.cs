@@ -20,9 +20,25 @@ namespace TechServices
         {
             InitializeComponent();
         }
-
+        private void ShowPassword_Changed(object sender, RoutedEventArgs e)
+        {
+            if (chkShowPassword.IsChecked == true)
+            {
+                PasswordInputVisible.Text = PasswordInput.Password;
+                PasswordInputVisible.Visibility = Visibility.Visible;
+                PasswordInput.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                PasswordInput.Password = PasswordInputVisible.Text;
+                PasswordInput.Visibility = Visibility.Visible;
+                PasswordInputVisible.Visibility = Visibility.Collapsed;
+            }
+        }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            string pass = chkShowPassword.IsChecked == true ? PasswordInputVisible.Text : PasswordInput.Password;
+
             ErrorText.Visibility = Visibility.Collapsed;
             if (string.IsNullOrWhiteSpace(UsernameBox.Text))
             {
@@ -31,7 +47,7 @@ namespace TechServices
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(PasswordInput.Password))
+            if (string.IsNullOrWhiteSpace(pass))
             {
                 ErrorText.Visibility = Visibility.Visible;
                 ErrorText.Text=("أدخل كلمة السر");

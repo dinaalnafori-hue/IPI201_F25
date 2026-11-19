@@ -29,6 +29,8 @@
 
             <TextBlock Text="كلمة السر"  HorizontalAlignment="Right" Margin="0,0,0,6"/>
             <PasswordBox x:Name="PasswordInput" Margin="0,0,0,14"/>
+            <TextBox x:Name="PasswordInputVisible" Margin="0,0,0,14" Visibility="Collapsed"/>
+            <CheckBox x:Name="chkShowPassword" Content="اظهار كلمة السر" HorizontalAlignment="Right" Margin="0,0,0,20" Checked="ShowPassword_Changed" Unchecked="ShowPassword_Changed"/>
 
             <TextBlock Text="نوع الحساب"  HorizontalAlignment="Right" Margin="0,0,0,6"/>
             <ComboBox x:Name="RoleBox" Margin="0,0,0,12">
