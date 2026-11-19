@@ -1,0 +1,51 @@
+﻿<Window x:Class="TechServices.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TechServices"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="1" Background="{StaticResource SidebarBrush}">
+            <StackPanel VerticalAlignment="Center" Margin="40">
+                <TextBlock Text="🛠️" FontSize="64" HorizontalAlignment="Center"/>
+                <TextBlock Text=" شركة الخدمات التقنية" FontSize="26" FontWeight="Bold"
+                    Foreground="White" TextWrapping="Wrap" TextAlignment="Center" Margin="0,16,0,8"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="48,0">
+            <TextBlock Text="تسجيل الدخول" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center"
+                  Foreground="{StaticResource PrimaryDarkBrush}" Margin="0,0,0,24"/>
+
+            <TextBlock Text="اسم المستخدم"  HorizontalAlignment="Right" Margin="0,0,0,6"/>
+            <TextBox x:Name="UsernameBox" Margin="0,0,0,14"/>
+
+            <TextBlock Text="كلمة السر"  HorizontalAlignment="Right" Margin="0,0,0,6"/>
+            <PasswordBox x:Name="PasswordInput" Margin="0,0,0,14"/>
+
+            <TextBlock Text="نوع الحساب"  HorizontalAlignment="Right" Margin="0,0,0,6"/>
+            <ComboBox x:Name="RoleBox" Margin="0,0,0,12">
+                <ComboBoxItem Content="مدير" Tag="Admin"/>
+                <ComboBoxItem Content="موظف" Tag="Employee"/>
+                <ComboBoxItem Content="فني" Tag="Technician"/>
+                <ComboBoxItem Content="عميل" Tag="Customer"/>
+            </ComboBox>
+
+            <TextBlock  HorizontalAlignment="Center" Margin="0,0,0,12">
+           <Hyperlink Foreground="{StaticResource PrimaryBrush}" Click="CreateAccount_Click">إنشاء حساب عميل</Hyperlink>
+            </TextBlock>
+
+            <TextBlock x:Name="InfoText" Foreground="{StaticResource PrimaryBrush}" TextWrapping="Wrap" Margin="0,0,0,8"/>
+            <TextBlock x:Name="ErrorText" Foreground="{StaticResource DangerBrush}" TextAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed" TextWrapping="Wrap" Margin="0,10,0,10"/>
+
+            <Button Content="تسجيل الدخول" Style="{StaticResource PrimaryButton}" IsDefault="True" Click="Login_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
